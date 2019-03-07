@@ -1,0 +1,14 @@
+replicaCount: 1
+image:
+  tag: 4.3
+service:
+  type: ClusterIP
+  externalPort: 80
+  internalPort: 80
+ingress:
+  enabled: true
+  host: example.pgadmin.org
+persistence:
+  enabled: true
+  accessMode: ReadWriteOnce
+  size: 2Gi

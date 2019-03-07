@@ -1,0 +1,22 @@
+{{- if .Values.ingress.enabled }}
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ template "fullname" . }}
+  annotations:
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"      
+  labels:
+    app: {{ template "name" . }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  rules:
+  - host: {{.Values.ingress.host}}
+    http:
+     paths:
+     - backend:
+         serviceName: {{ template "fullname" . }}
+         servicePort: {{ .Values.service.externalPort }}
+       path: /
+{{- end }}

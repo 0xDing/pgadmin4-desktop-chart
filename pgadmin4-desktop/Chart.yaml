@@ -1,0 +1,10 @@
+apiVersion: v1
+name: pgadmin4-desktop
+description: pgAdmin 4 is a web based administration tool for the PostgreSQL database. 
+keywords:
+  - pgadmin
+  - postgres
+home: https://www.pgadmin.org/
+source:
+ - https://github.com/0xding/pgadmin4_chart
+version: 4.3
